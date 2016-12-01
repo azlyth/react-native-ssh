@@ -1,7 +1,6 @@
-
 #import "RCTBridgeModule.h"
 
-@interface RNSSH : NSObject <RCTBridgeModule>
+@interface SSH : NSObject <RCTBridgeModule>
 
 @end
   
