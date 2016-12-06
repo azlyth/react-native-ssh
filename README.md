@@ -5,7 +5,8 @@ A library that allows a React Native app to run commands over SSH.
 ## Usage
 
 This library provides a single method: `SSH.execute`. Given SSH credentials
-and a command, a promise is returned.
+and a command, a promise is returned. This promise resolves to the command's
+output as an array of strings.
 
 ```javascript
 import SSH from 'react-native-ssh';
@@ -14,9 +15,12 @@ config = {user: 'bob', host: 'example.com', password: 'p4$$w0rd'};
 command = 'ls -l ~';
 
 SSH.execute(config, command).then(
-  result => console.log('Success:', result),
+  result => console.log(result),
   error =>  console.log('Error:', error)
 );
+
+// A successful run would output:
+// ['file1.txt', 'server.py', 'script.sh']
 ```
 
 ## Installation
