@@ -1,44 +1,43 @@
-
 # react-native-ssh
 
-## Getting started
-
-`$ npm install react-native-ssh --save`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-ssh`
-
-### Manual installation
-
-
-#### iOS
-
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-ssh` and add `RNSSH.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNSSH.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-
-#### Android
-
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactnative.ssh.RNSSHPackage;` to the imports at the top of the file
-  - Add `new RNSSHPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-ssh'
-  	project(':react-native-ssh').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-ssh/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-ssh')
-  	```
-
+A library that allows a React Native app to run commands over SSH.
 
 ## Usage
+
+This library provides a single method: `SSH.execute`. Given SSH credentials
+and a command, a promise is returned.
+
 ```javascript
 import SSH from 'react-native-ssh';
 
-// TODO: What do with the module?
-SSH;
+config = {user: 'bob', host: 'example.com', password: 'p4$$w0rd'};
+command = 'ls -l ~';
+
+SSH.execute(config, command).then(
+  result => console.log('Success:', result),
+  error =>  console.log('Error:', error)
+);
 ```
-  
+
+## Installation
+
+### Android
+
+- `npm install react-native-ssh --save`
+- `react-native link react-native-ssh`
+
+### iOS
+
+- `npm install react-native-ssh --save`
+- `react-native link react-native-ssh`
+- Add `pod 'NMSSH', '~> 2.2.5'` to your Podfile and install. If you don't have a Podfile:
+  - `cd ios`
+  - `pod init`
+  - Edit the newly created Podfile to look like [this example](Podfile.example)
+  - `pod install`
+- Make the Pod headers accessible to react-native-ssh (instructions based on XCode 8.1):
+  - Open `ios/hooks.xcworkspace` in XCode
+  - Click on `hooks > Libraries > RNSSH.xcodeproj` in the Project Navigator
+  - Click on `RNSSH` under **Targets**
+  - Go to **Build Settings**
+  - Add `$(SRCROOT)/../../../ios/Pods/Headers/Public` to **Header Search Paths** and make it recursive

@@ -1,0 +1,3 @@
+target 'YOUR_APP_NAME' do
+  pod 'NMSSH', '~> 2.2.5'
+end
