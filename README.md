@@ -1,4 +1,4 @@
-# react-native-ssh
+# react-native-ssh [![npm version](https://badge.fury.io/js/react-native-ssh.svg)](https://badge.fury.io/js/react-native-ssh)
 
 A library that allows a React Native app to run commands over SSH.
 
