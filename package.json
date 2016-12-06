@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-ssh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a library that enables React Native apps to execute commands over SSH",
   "main": "index.js",
   "scripts": {
