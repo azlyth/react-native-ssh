@@ -2,13 +2,14 @@
 {
   "name": "react-native-ssh",
   "version": "1.0.0",
-  "description": "",
+  "description": "a library that enables React Native apps to execute commands over SSH",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "ssh"
   ],
   "author": "",
   "license": "",
