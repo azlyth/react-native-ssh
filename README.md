@@ -12,7 +12,7 @@ output as an array of strings.
 import SSH from 'react-native-ssh';
 
 config = {user: 'bob', host: 'example.com', password: 'p4$$w0rd'};
-command = 'ls -l ~';
+command = 'ls ~';
 
 SSH.execute(config, command).then(
   result => console.log(result),
