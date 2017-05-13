@@ -39,9 +39,3 @@ SSH.execute(config, command).then(
   - `pod init`
   - Edit the newly created Podfile to look like [this example](Podfile.example)
   - `pod install`
-- Make the Pod headers accessible to react-native-ssh (instructions based on XCode 8.1):
-  - Open `ios/hooks.xcworkspace` in XCode
-  - Click on `hooks > Libraries > RNSSH.xcodeproj` in the Project Navigator
-  - Click on `RNSSH` under **Targets**
-  - Go to **Build Settings**
-  - Add `$(SRCROOT)/../../../ios/Pods/Headers/Public` to **Header Search Paths** and make it recursive
