@@ -18,6 +18,9 @@ RCT_EXPORT_METHOD(execute:(NSDictionary *)config command:(NSString *)command res
     // Authenticate
     if (session.isConnected) {
         [session authenticateByPassword:config[@"password"]];
+    } else {
+      NSError *connectError = [[NSError alloc] initWithDomain:@"RNSSH" code:404 userInfo:@{@"Error reason": @"Can't connect"}];
+      return reject(@"rnssh_could_not_connect", @"RNSSH: could not connect", connectError);
     }
 
     // Execute the command and disconnect
