@@ -72,6 +72,9 @@ public class RNSSHModule extends ReactContextBaseJavaModule {
     Properties prop = new Properties();
     prop.put("StrictHostKeyChecking", "no");
     session.setConfig(prop);
+    
+    // Prevent crash
+    session.setConfig("PreferredAuthentications", "password");
 
     // Connect to the server
     session.connect();
